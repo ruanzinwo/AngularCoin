@@ -40,15 +40,18 @@ Exemplo:
 
 ### Tela de conversão
 
-![Tela de conversão](docs/screenshots/tela-conversor.png)
+<img width="1913" height="787" alt="docstela-principal png" src="https://github.com/user-attachments/assets/6692faa1-2fcf-44c0-b07d-0008f647f362" />
+
 
 ### Tela de histórico
 
-![Tela de histórico](docs/screenshots/tela-historico.png)
+<img width="1919" height="988" alt="docsconversao-historico png" src="https://github.com/user-attachments/assets/7b417d85-7c03-473f-b6fe-a85b50a6269e" />
+
 
 ### Tela offline
 
-![Tela offline](docs/screenshots/tela-offline.png)
+<img width="1919" height="989" alt="docsmodo-offline png" src="https://github.com/user-attachments/assets/5f264183-273f-474b-b687-5fecb09aa23a" />
+
 
 ## Como executar o projeto
 
