@@ -1,67 +1,77 @@
 # AngularCoin
 
-Aplicativo web desenvolvido com **Angular** e **TypeScript** para conversão de moedas em tempo real consumindo uma API REST externa.
+Aplicação web desenvolvida em Angular para conversão de moedas em tempo real utilizando uma API REST pública de câmbio. O sistema permite realizar conversões entre diversas moedas internacionais, armazenar o histórico localmente e continuar funcionando mesmo sem conexão com a internet através do uso de cache das últimas taxas obtidas.
 
 ## Objetivo
 
-O AngularCoin permite que o usuário selecione uma moeda de origem, uma moeda de destino, informe um valor e visualize a conversão com base em taxas de câmbio atualizadas.
+O AngularCoin foi desenvolvido com o objetivo de demonstrar a integração entre Angular e APIs REST, consumindo dados de câmbio em tempo real para fornecer conversões rápidas, precisas e acessíveis ao usuário.
 
 ## Funcionalidades
 
-- Conversão de moedas em tempo real.
-- Consumo de API REST externa de câmbio.
-- Suporte a várias moedas internacionais, como USD, BRL, EUR, GBP, JPY e outras.
-- Histórico das últimas conversões usando Local Storage.
-- Botão para inverter rapidamente as moedas de origem e destino.
-- Cache das últimas taxas de câmbio para uso offline.
-- Tratamento de erros caso a API esteja indisponível.
-- Interface responsiva para computador e celular.
+* Conversão de moedas em tempo real
+* Integração com API REST de câmbio
+* Suporte a diversas moedas internacionais
+* Conversão inversa entre moedas
+* Histórico de conversões armazenado localmente
+* Funcionamento offline utilizando as últimas taxas salvas
+* Atualização automática das taxas de câmbio
+* Interface responsiva e intuitiva
+* Tratamento de erros de conexão
 
-## API utilizada
+## Tecnologias Utilizadas
 
-Este projeto utiliza a API pública:
+* Angular
+* TypeScript
+* HTML5
+* CSS3
+* HttpClient (Angular)
+* Local Storage
+* Exchange Rate API (Open ER API)
 
-`https://open.er-api.com/v6/latest/{MOEDA}`
+## API Utilizada
 
-Exemplo:
+O projeto utiliza a API pública:
 
-`https://open.er-api.com/v6/latest/USD`
+https://open.er-api.com
 
-## Tecnologias
+Exemplo de requisição:
 
-- Angular
-- TypeScript
-- HTML
-- CSS
-- Local Storage
-- API REST
+```http
+https://open.er-api.com/v6/latest/USD
+```
 
-## Telas do projeto
+A API fornece taxas de câmbio atualizadas para centenas de moedas internacionais.
 
-### Tela de conversão
+## Capturas de Tela
 
-<img width="1913" height="787" alt="docstela-principal png" src="https://github.com/user-attachments/assets/6692faa1-2fcf-44c0-b07d-0008f647f362" />
+### Tela Principal
 
+![AngularCoin main converter screen in a browser window with a dark blue interface showing 1000 USD converted to 5,077.92 BRL. Controls include source currency USD, destination currency BRL, and an Inverter button. Result details show 1 USD = 5.079 BRL and last update Mon, 15 Jun 2026 00:02:31 +0000, indicating a real-time currency conversion interface.](docs/tela-principal.png)
 
-### Tela de histórico
+### Conversão e Histórico
 
-<img width="1919" height="988" alt="docsconversao-historico png" src="https://github.com/user-attachments/assets/7b417d85-7c03-473f-b6fe-a85b50a6269e" />
+![Currency conversion history panel with a dark blue background showing past entries such as 1000 USD → EUR, 10000 EUR → USD, 100 EUR → BRL, and 1000 USD → BRL. The section includes a header Historico de Conversoes and a Limpar button for clearing history.](docsconversao-historico.png.png)
 
+### Funcionamento Offline
 
-### Tela offline
+![Offline mode screen with a dark blue browser interface showing 1 USD converted to 5.08 BRL. Status text reads Sem conexao com a API. Usando as ultimas taxas salvas no dispositivo. Modo offline ativo. The screen shows cached exchange rate usage and a history section with past conversions.](docs/modo-offline.png)
 
-<img width="1919" height="989" alt="docsmodo-offline png" src="https://github.com/user-attachments/assets/5f264183-273f-474b-b687-5fecb09aa23a" />
+## Como Executar o Projeto
 
+### Pré-requisitos
 
-## Como executar o projeto
+* Node.js
+* Angular CLI
+
+### Instalação
 
 Clone o repositório:
 
 ```bash
-git clone https://github.com/SEU-USUARIO/AngularCoin.git
+git clone https://github.com/seuusuario/AngularCoin.git
 ```
 
-Entre na pasta:
+Acesse a pasta:
 
 ```bash
 cd AngularCoin
@@ -79,47 +89,50 @@ Execute o projeto:
 ng serve
 ```
 
-Acesse no navegador:
+Abra no navegador:
 
-```bash
+```text
 http://localhost:4200
 ```
 
-## Estrutura principal
+## Estrutura do Projeto
 
 ```text
-AngularCoin/
-├── src/
-│   ├── app/
-│   │   ├── app.component.ts
-│   │   ├── app.component.html
-│   │   └── app.component.css
-│   ├── main.ts
-│   ├── index.html
-│   └── styles.css
-├── docs/
-│   └── screenshots/
-├── README.md
-├── LICENSE
-├── .gitignore
-├── angular.json
-└── package.json
+src/
+├── app/
+│   ├── app.component.ts
+│   ├── app.component.html
+│   └── app.component.css
+├── assets/
+├── index.html
+└── main.ts
 ```
 
-## Requisitos atendidos
+## Recursos Implementados
 
-- Framework Angular.
-- Linguagem TypeScript.
-- Consumo de API REST externa.
-- Conversão entre diferentes moedas.
-- Histórico local com Local Storage.
-- Cache offline das últimas cotações.
-- Botão de conversão inversa.
-- Interface responsiva.
-- README com imagens.
-- LICENSE MIT.
-- .gitignore configurado para não versionar `node_modules`.
+### Conversão de Moedas
+
+Permite selecionar uma moeda de origem, uma moeda de destino e realizar a conversão instantaneamente utilizando taxas atualizadas.
+
+### Histórico de Conversões
+
+Todas as conversões realizadas são armazenadas localmente, permitindo consulta posterior sem necessidade de banco de dados.
+
+### Modo Offline
+
+Quando não há conexão com a internet, o sistema utiliza as últimas taxas armazenadas no navegador para continuar funcionando normalmente.
+
+### Conversão Inversa
+
+O usuário pode inverter rapidamente as moedas de origem e destino através do botão "Inverter".
 
 ## Autor
 
-Ruan Miguel
+Ruan Miguel Correia dos Santos
+
+Curso: Sistemas de Informação
+
+## Licença
+
+Este projeto está licenciado sob a licença MIT.
+
