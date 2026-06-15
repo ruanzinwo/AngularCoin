@@ -1,0 +1,9 @@
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(135deg, #08111f, #12315a);
+  color: #f8fafc;
+  min-height: 100vh;
+}
+button, input, select { font: inherit; }

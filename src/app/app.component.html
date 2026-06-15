@@ -1,0 +1,67 @@
+<main class="page">
+  <section class="hero">
+    <div>
+      <p class="tag">API REST + Angular</p>
+      <h1>AngularCoin</h1>
+      <p>Converta moedas em tempo real, salve histórico e use as últimas cotações mesmo offline.</p>
+    </div>
+  </section>
+
+  <section class="card converter">
+    <h2>Conversor de Moedas</h2>
+
+    <div class="grid">
+      <label>
+        Valor
+        <input type="number" min="0" step="0.01" [(ngModel)]="amount" (input)="convert(false)">
+      </label>
+
+      <label>
+        Moeda de origem
+        <select [(ngModel)]="fromCurrency" (change)="onCurrencyChange()">
+          <option *ngFor="let currency of currencies" [value]="currency">{{ currency }}</option>
+        </select>
+      </label>
+
+      <button class="invert" type="button" (click)="invertCurrencies()">⇄ Inverter</button>
+
+      <label>
+        Moeda de destino
+        <select [(ngModel)]="toCurrency" (change)="convert(false)">
+          <option *ngFor="let currency of currencies" [value]="currency">{{ currency }}</option>
+        </select>
+      </label>
+    </div>
+
+    <button class="primary" type="button" (click)="convert(true)" [disabled]="loading">
+      {{ loading ? 'Atualizando...' : 'Converter' }}
+    </button>
+
+    <div class="result" *ngIf="result !== null">
+      <span>Resultado</span>
+      <strong>{{ result | number:'1.2-2' }} {{ toCurrency }}</strong>
+      <small *ngIf="currentRate">1 {{ fromCurrency }} = {{ currentRate | number:'1.4-4' }} {{ toCurrency }}</small>
+    </div>
+
+    <p class="update" *ngIf="lastUpdate">Última atualização: {{ lastUpdate }}</p>
+    <p class="warning" *ngIf="errorMessage">{{ errorMessage }}</p>
+    <p class="offline" *ngIf="offlineMode">Modo offline ativo</p>
+  </section>
+
+  <section class="card history">
+    <div class="history-title">
+      <h2>Histórico de Conversões</h2>
+      <button type="button" (click)="clearHistory()" *ngIf="history.length">Limpar</button>
+    </div>
+
+    <p *ngIf="!history.length" class="empty">Nenhuma conversão salva ainda.</p>
+
+    <div class="history-item" *ngFor="let item of history">
+      <div>
+        <strong>{{ item.amount }} {{ item.from }} → {{ item.to }}</strong>
+        <small>{{ item.date }}</small>
+      </div>
+      <span>{{ item.result | number:'1.2-2' }} {{ item.to }}</span>
+    </div>
+  </section>
+</main>
