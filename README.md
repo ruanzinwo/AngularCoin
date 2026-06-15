@@ -1,3 +1,9 @@
+## Autor
+
+Ruan Miguel Correia dos Santos 01838500
+
+Curso: Sistemas de Informação
+
 # AngularCoin
 
 Aplicação web desenvolvida em Angular para conversão de moedas em tempo real utilizando uma API REST pública de câmbio. O sistema permite realizar conversões entre diversas moedas internacionais, armazenar o histórico localmente e continuar funcionando mesmo sem conexão com a internet através do uso de cache das últimas taxas obtidas.
@@ -126,12 +132,6 @@ Quando não há conexão com a internet, o sistema utiliza as últimas taxas arm
 ### Conversão Inversa
 
 O usuário pode inverter rapidamente as moedas de origem e destino através do botão "Inverter".
-
-## Autor
-
-Ruan Miguel Correia dos Santos
-
-Curso: Sistemas de Informação
 
 ## Licença
 
